@@ -1,0 +1,113 @@
+﻿@* Displays a MudCard for each ticket in the database. *@
+@using CollectibleMovieTicketDB.Model
+
+<MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.Medium">
+    <MudGrid>
+        @foreach (var ticket in tickets)
+        {
+            <MudItem xs="12" sm="6" md="3">
+                <MudCard>
+                    <MudCardMedia Image="@ticket.ImageUrl" Height="200" />
+                    <MudCardContent>
+                        <MudText Typo="Typo.h5">@ticket.MovieTitle</MudText>
+                        <MudText Typo="Typo.body2">
+                            Demonstrated proficiency in DOM manipulation. (Not mobile compatible.)
+                        </MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+</MudContainer>
+}
+
+@code {
+    List<CollectibleTicket> tickets = new();
+
+    protected override void OnInitialized()
+    {
+        tickets.AddRange(new List<CollectibleTicket>
+        {
+            new CollectibleTicket {
+                MovieTitle = "Avatar: The Way of Water",
+                CollectorNumber = "No. 85",
+                ReleaseDate = "2022.12.14",
+                Variation = "1",
+                EstimatedEbaySalePrice = 100.00,
+                ImageUrl = "images/tickets/Avatar-The-Way-of-Water_1.jpg"
+            },
+            new CollectibleTicket {
+                MovieTitle = "Avatar: The Way of Water",
+                CollectorNumber = "No. 85",
+                ReleaseDate = "2022.12.14",
+                Variation = "2",
+                EstimatedEbaySalePrice = 100.00,
+                ImageUrl = "images/tickets/Avatar-The-Way-of-Water_2.jpg"
+            },
+            new CollectibleTicket {
+                MovieTitle = "Birds of Prey",
+                CollectorNumber = "No. 14",
+                ReleaseDate = "2020.02.05",
+                Variation = "1",
+                EstimatedEbaySalePrice = 80.00,
+                ImageUrl = "images/tickets/Birds-of-Prey-Harley-Quinn_1.jpg"
+            },
+            new CollectibleTicket {
+                MovieTitle = "Birds of Prey",
+                CollectorNumber = "No. 14",
+                ReleaseDate = "2020.02.05",
+                Variation = "2",
+                EstimatedEbaySalePrice = 80.00,
+                ImageUrl = "images/tickets/Birds-of-Prey-Harley-Quinn_2.jpg"
+            },
+            new CollectibleTicket {
+                MovieTitle = "Tenet",
+                CollectorNumber = "No. 19",
+                ReleaseDate = "2020.08.26",
+                Variation = "1",
+                EstimatedEbaySalePrice = 60.00,
+                ImageUrl = "images/tickets/Tenet_1.jpg"
+            },
+            new CollectibleTicket {
+                MovieTitle = "Tenet",
+                CollectorNumber = "No. 19",
+                ReleaseDate = "2020.08.26",
+                Variation = "2",
+                EstimatedEbaySalePrice = 60.00,
+                ImageUrl = "images/tickets/Tenet_2.jpg"
+            },
+            new CollectibleTicket {
+                MovieTitle = "The Batman",
+                CollectorNumber = "No. 48",
+                ReleaseDate = "2022.03.01",
+                Variation = "1",
+                EstimatedEbaySalePrice = 100.00,
+                ImageUrl = "images/tickets/The-Batman_1.jpg"
+            },
+            new CollectibleTicket {
+                MovieTitle = "The Batman",
+                CollectorNumber = "No. 48",
+                ReleaseDate = "2022.03.01",
+                Variation = "2",
+                EstimatedEbaySalePrice = 100.00,
+                ImageUrl = "images/tickets/The-Batman_2.jpg"
+            },
+            new CollectibleTicket {
+                MovieTitle = "Thor: Love and Thunder",
+                CollectorNumber = "No. 57",
+                ReleaseDate = "2022.07.06",
+                Variation = "1",
+                EstimatedEbaySalePrice = 90.00,
+                ImageUrl = "images/tickets/Thor-Love-and-Thunder_1.jpg"
+            },
+            new CollectibleTicket {
+                MovieTitle = "Thor: Love and Thunder",
+                CollectorNumber = "No. 57",
+                ReleaseDate = "2022.07.06",
+                Variation = "2",
+                EstimatedEbaySalePrice = 90.00,
+                ImageUrl = "images/tickets/Thor-Love-and-Thunder_2.jpg"
+            }
+        });
+    }
+}

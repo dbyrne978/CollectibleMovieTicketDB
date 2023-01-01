@@ -1,7 +1,12 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>CMTdb</PageTitle>
 
-<MudText Typo="Typo.h3" GutterBottom="true">Hello, world!</MudText>
-<MudText Class="mb-8">Welcome to your new app, powered by MudBlazor!</MudText>
-<MudAlert Severity="Severity.Normal">You can find documentation and examples on our website here: <MudLink Href="https://mudblazor.com" Typo="Typo.body2" Color="Color.Inherit"><b>www.mudblazor.com</b></MudLink></MudAlert>
+<MudText Typo="Typo.h3" GutterBottom="true">Welcome to the Collectible Movie Ticket Database (CMTdb)!</MudText>
+<MudText Class="mb-8">
+    During the COVID-19 pandemic, Megabox theaters in South Korea started distributing these beautiful collectible tickets 
+    to loyal moviegoers who attended the early showings of theatrical releases. This database is being created to document 
+    these collectibles in their entirety.
+</MudText>
+
+<CollectibleTicketDisplay />

@@ -15,6 +15,8 @@
 
         public string Variation { get; set; }
 
-        public float EstimatedEbaySalePrice { get; set; }
+        public double EstimatedEbaySalePrice { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 }
