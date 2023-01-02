@@ -11,11 +11,11 @@
 
         public string CollectorNumber { get; set; }
 
-        public string ReleaseDate { get; set; }
+        public string ShowingDate { get; set; }
 
         public string Variation { get; set; }
 
-        public double EstimatedEbaySalePrice { get; set; }
+        public int EstimatedEbaySalePrice { get; set; }
 
         public string ImageUrl { get; set; }
     }

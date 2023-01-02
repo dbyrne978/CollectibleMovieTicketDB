@@ -10,9 +10,14 @@
                     <MudCardMedia Image="@ticket.ImageUrl" Height="200" />
                     <MudCardContent>
                         <MudText Typo="Typo.h5">@ticket.MovieTitle</MudText>
-                        <MudText Typo="Typo.body2">
-                            Demonstrated proficiency in DOM manipulation. (Not mobile compatible.)
-                        </MudText>
+
+                        <MudText Typo="Typo.body2"><b>Showing Date:</b> @ticket.ShowingDate</MudText>
+                        <MudText Typo="Typo.body2"><b>Collector Number:</b> @ticket.CollectorNumber</MudText>
+                        <MudText Typo="Typo.body2"><b>Variation:</b> @ticket.Variation</MudText>
+                        <MudText Typo="Typo.body2"><b>Estimated Secondary Market Value:</b> $ @ticket.EstimatedEbaySalePrice</MudText>
+
+                        @*<MudChip Icon="@Icons.Material.Filled.AutoAwesome" Label="true" Color="Color.Primary" Align="Align.Right">@ticket.CollectorNumber</MudChip>*@
+                        <MudText Typo="Typo.h5" Align="Align.Right">@ticket.CollectorNumber @ticket.Variation</MudText>
                     </MudCardContent>
                 </MudCard>
             </MudItem>
@@ -31,81 +36,81 @@
             new CollectibleTicket {
                 MovieTitle = "Avatar: The Way of Water",
                 CollectorNumber = "No. 85",
-                ReleaseDate = "2022.12.14",
-                Variation = "1",
-                EstimatedEbaySalePrice = 100.00,
+                ShowingDate = "2022.12.14",
+                Variation = "v1",
+                EstimatedEbaySalePrice = 100,
                 ImageUrl = "images/tickets/Avatar-The-Way-of-Water_1.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Avatar: The Way of Water",
                 CollectorNumber = "No. 85",
-                ReleaseDate = "2022.12.14",
-                Variation = "2",
-                EstimatedEbaySalePrice = 100.00,
+                ShowingDate = "2022.12.14",
+                Variation = "v2",
+                EstimatedEbaySalePrice = 100,
                 ImageUrl = "images/tickets/Avatar-The-Way-of-Water_2.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Birds of Prey",
                 CollectorNumber = "No. 14",
-                ReleaseDate = "2020.02.05",
-                Variation = "1",
-                EstimatedEbaySalePrice = 80.00,
+                ShowingDate = "2020.02.05",
+                Variation = "v1",
+                EstimatedEbaySalePrice = 80,
                 ImageUrl = "images/tickets/Birds-of-Prey-Harley-Quinn_1.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Birds of Prey",
                 CollectorNumber = "No. 14",
-                ReleaseDate = "2020.02.05",
-                Variation = "2",
-                EstimatedEbaySalePrice = 80.00,
+                ShowingDate = "2020.02.05",
+                Variation = "v2",
+                EstimatedEbaySalePrice = 80,
                 ImageUrl = "images/tickets/Birds-of-Prey-Harley-Quinn_2.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Tenet",
                 CollectorNumber = "No. 19",
-                ReleaseDate = "2020.08.26",
-                Variation = "1",
-                EstimatedEbaySalePrice = 60.00,
+                ShowingDate = "2020.08.26",
+                Variation = "v1",
+                EstimatedEbaySalePrice = 60,
                 ImageUrl = "images/tickets/Tenet_1.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Tenet",
                 CollectorNumber = "No. 19",
-                ReleaseDate = "2020.08.26",
-                Variation = "2",
-                EstimatedEbaySalePrice = 60.00,
+                ShowingDate = "2020.08.26",
+                Variation = "v2",
+                EstimatedEbaySalePrice = 60,
                 ImageUrl = "images/tickets/Tenet_2.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "The Batman",
                 CollectorNumber = "No. 48",
-                ReleaseDate = "2022.03.01",
-                Variation = "1",
-                EstimatedEbaySalePrice = 100.00,
+                ShowingDate = "2022.03.01",
+                Variation = "v1",
+                EstimatedEbaySalePrice = 100,
                 ImageUrl = "images/tickets/The-Batman_1.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "The Batman",
                 CollectorNumber = "No. 48",
-                ReleaseDate = "2022.03.01",
-                Variation = "2",
-                EstimatedEbaySalePrice = 100.00,
+                ShowingDate = "2022.03.01",
+                Variation = "v2",
+                EstimatedEbaySalePrice = 100,
                 ImageUrl = "images/tickets/The-Batman_2.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Thor: Love and Thunder",
                 CollectorNumber = "No. 57",
-                ReleaseDate = "2022.07.06",
-                Variation = "1",
-                EstimatedEbaySalePrice = 90.00,
+                ShowingDate = "2022.07.06",
+                Variation = "v1",
+                EstimatedEbaySalePrice = 90,
                 ImageUrl = "images/tickets/Thor-Love-and-Thunder_1.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Thor: Love and Thunder",
                 CollectorNumber = "No. 57",
-                ReleaseDate = "2022.07.06",
-                Variation = "2",
-                EstimatedEbaySalePrice = 90.00,
+                ShowingDate = "2022.07.06",
+                Variation = "v2",
+                EstimatedEbaySalePrice = 90,
                 ImageUrl = "images/tickets/Thor-Love-and-Thunder_2.jpg"
             }
         });
