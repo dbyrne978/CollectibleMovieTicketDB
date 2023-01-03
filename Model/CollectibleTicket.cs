@@ -9,11 +9,13 @@
 
         public string MovieTitle { get; set; }
 
-        public string CollectorNumber { get; set; }
+        public int CollectorNumber { get; set; }
+
+        public bool Rerelease { get; set; }
 
         public string ShowingDate { get; set; }
 
-        public string Variation { get; set; }
+        public int? Variant { get; set; }
 
         public int EstimatedEbaySalePrice { get; set; }
 

@@ -9,15 +9,33 @@
                 <MudCard>
                     <MudCardMedia Image="@ticket.ImageUrl" Height="200" />
                     <MudCardContent>
+                        @* Card Title *@
                         <MudText Typo="Typo.h5">@ticket.MovieTitle</MudText>
-
+                        
+                        @* Card Body *@
                         <MudText Typo="Typo.body2"><b>Showing Date:</b> @ticket.ShowingDate</MudText>
-                        <MudText Typo="Typo.body2"><b>Collector Number:</b> @ticket.CollectorNumber</MudText>
-                        <MudText Typo="Typo.body2"><b>Variation:</b> @ticket.Variation</MudText>
+                        @{
+                            string collectorTag = ticket.Rerelease ? "Re. " : "No. ";
+                            string fullCollectorNumber = collectorTag + ticket.CollectorNumber;
+                        }
+                        <MudText Typo="Typo.body2"><b>Collector Number:</b> @fullCollectorNumber</MudText>
+                        @if (ticket.Variant != null) {
+                            <MudText Typo="Typo.body2"><b>Variant:</b> @ticket.Variant</MudText>
+                        }
                         <MudText Typo="Typo.body2"><b>Estimated Secondary Market Value:</b> $ @ticket.EstimatedEbaySalePrice</MudText>
 
-                        @*<MudChip Icon="@Icons.Material.Filled.AutoAwesome" Label="true" Color="Color.Primary" Align="Align.Right">@ticket.CollectorNumber</MudChip>*@
-                        <MudText Typo="Typo.h5" Align="Align.Right">@ticket.CollectorNumber @ticket.Variation</MudText>
+                        @* Collector Chip *@
+                        @{
+                            string chipTag = ticket.Rerelease ? "RE " : "";
+                            string chipVariant = ticket.Variant == null ? "" : " (" + ticket.Variant + ")";
+                            string chipNumber = chipTag + "#" + ticket.CollectorNumber + chipVariant;
+                        }
+                        <MudChip
+                            Label="true"
+                            Color="Color.Primary"
+                            Size="Size.Large">
+                            @chipNumber
+                        </MudChip>
                     </MudCardContent>
                 </MudCard>
             </MudItem>
@@ -35,83 +53,101 @@
         {
             new CollectibleTicket {
                 MovieTitle = "Avatar: The Way of Water",
-                CollectorNumber = "No. 85",
+                Rerelease = false,
+                CollectorNumber = 85,
                 ShowingDate = "2022.12.14",
-                Variation = "v1",
+                Variant = 1,
                 EstimatedEbaySalePrice = 100,
                 ImageUrl = "images/tickets/Avatar-The-Way-of-Water_1.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Avatar: The Way of Water",
-                CollectorNumber = "No. 85",
+                Rerelease = false,
+                CollectorNumber = 85,
                 ShowingDate = "2022.12.14",
-                Variation = "v2",
+                Variant = 2,
                 EstimatedEbaySalePrice = 100,
                 ImageUrl = "images/tickets/Avatar-The-Way-of-Water_2.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Birds of Prey",
-                CollectorNumber = "No. 14",
+                Rerelease = false,
+                CollectorNumber = 14,
                 ShowingDate = "2020.02.05",
-                Variation = "v1",
+                Variant = 1,
                 EstimatedEbaySalePrice = 80,
                 ImageUrl = "images/tickets/Birds-of-Prey-Harley-Quinn_1.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Birds of Prey",
-                CollectorNumber = "No. 14",
+                Rerelease = false,
+                CollectorNumber = 14,
                 ShowingDate = "2020.02.05",
-                Variation = "v2",
+                Variant = 2,
                 EstimatedEbaySalePrice = 80,
                 ImageUrl = "images/tickets/Birds-of-Prey-Harley-Quinn_2.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Tenet",
-                CollectorNumber = "No. 19",
+                Rerelease = false,
+                CollectorNumber = 19,
                 ShowingDate = "2020.08.26",
-                Variation = "v1",
+                Variant = 1,
                 EstimatedEbaySalePrice = 60,
                 ImageUrl = "images/tickets/Tenet_1.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Tenet",
-                CollectorNumber = "No. 19",
+                Rerelease = false,
+                CollectorNumber = 19,
                 ShowingDate = "2020.08.26",
-                Variation = "v2",
+                Variant = 2,
                 EstimatedEbaySalePrice = 60,
                 ImageUrl = "images/tickets/Tenet_2.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "The Batman",
-                CollectorNumber = "No. 48",
+                Rerelease = false,
+                CollectorNumber = 48,
                 ShowingDate = "2022.03.01",
-                Variation = "v1",
+                Variant = 1,
                 EstimatedEbaySalePrice = 100,
                 ImageUrl = "images/tickets/The-Batman_1.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "The Batman",
-                CollectorNumber = "No. 48",
+                Rerelease = false,
+                CollectorNumber = 48,
                 ShowingDate = "2022.03.01",
-                Variation = "v2",
+                Variant = 2,
                 EstimatedEbaySalePrice = 100,
                 ImageUrl = "images/tickets/The-Batman_2.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Thor: Love and Thunder",
-                CollectorNumber = "No. 57",
+                Rerelease = false,
+                CollectorNumber = 57,
                 ShowingDate = "2022.07.06",
-                Variation = "v1",
+                Variant = 1,
                 EstimatedEbaySalePrice = 90,
                 ImageUrl = "images/tickets/Thor-Love-and-Thunder_1.jpg"
             },
             new CollectibleTicket {
                 MovieTitle = "Thor: Love and Thunder",
-                CollectorNumber = "No. 57",
+                Rerelease = false,
+                CollectorNumber = 57,
                 ShowingDate = "2022.07.06",
-                Variation = "v2",
+                Variant = 2,
                 EstimatedEbaySalePrice = 90,
                 ImageUrl = "images/tickets/Thor-Love-and-Thunder_2.jpg"
+            },
+            new CollectibleTicket {
+                MovieTitle = "Your Name",
+                Rerelease = true,
+                CollectorNumber = 7,
+                ShowingDate = "2021.09.09",
+                EstimatedEbaySalePrice = 120,
+                ImageUrl = "images/tickets/Your-Name.jpg"
             }
         });
     }
