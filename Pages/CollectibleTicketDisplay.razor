@@ -2,47 +2,53 @@
 @using CollectibleMovieTicketDB.Model
 
 <MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.Medium">
-    <MudGrid>
-        @foreach (var ticket in tickets)
-        {
-            <MudItem xs="12" sm="6" md="3">
-                <MudCard>
-                    <MudCardMedia Image="@ticket.ImageUrl" Height="200" />
-                    <MudCardContent>
-                        @* Card Title *@
-                        <MudText Typo="Typo.h5">@ticket.MovieTitle</MudText>
-                        
-                        @* Card Body *@
-                        <MudText Typo="Typo.body2"><b>Showing Date:</b> @ticket.ShowingDate</MudText>
-                        @{
-                            string collectorTag = ticket.Rerelease ? "Re. " : "No. ";
-                            string fullCollectorNumber = collectorTag + ticket.CollectorNumber;
-                        }
-                        <MudText Typo="Typo.body2"><b>Collector Number:</b> @fullCollectorNumber</MudText>
-                        @if (ticket.Variant != null) {
-                            <MudText Typo="Typo.body2"><b>Variant:</b> @ticket.Variant</MudText>
-                        }
-                        <MudText Typo="Typo.body2"><b>Estimated Secondary Market Value:</b> $ @ticket.EstimatedEbaySalePrice</MudText>
+    @if (tickets == null)
+    {
+        <CollectibleTicketDisplaySkeleton />
+    }
+    else
+    {
+        <MudGrid>
+            @foreach (var ticket in tickets)
+            {
+                <MudItem xs="12" sm="6" md="3">
+                    <MudCard>
+                        <MudCardMedia Image="@ticket.ImageUrl" Height="200" />
+                        <MudCardContent>
+                            @* Card Title *@
+                            <MudText Typo="Typo.h5">@ticket.MovieTitle</MudText>
 
-                        @* Collector Chip *@
-                        @{
-                            string chipTag = ticket.Rerelease ? "RE " : "";
-                            string chipVariant = ticket.Variant == null ? "" : " (" + ticket.Variant + ")";
-                            string chipNumber = chipTag + "#" + ticket.CollectorNumber + chipVariant;
-                        }
-                        <MudChip
-                            Label="true"
-                            Color="Color.Primary"
-                            Size="Size.Large">
-                            @chipNumber
-                        </MudChip>
-                    </MudCardContent>
-                </MudCard>
-            </MudItem>
-        }
-    </MudGrid>
+                            @* Card Body *@
+                            <MudText Typo="Typo.body2"><b>Showing Date:</b> @ticket.ShowingDate</MudText>
+                            @{
+                                string collectorTag = ticket.Rerelease ? "Re. " : "No. ";
+                                string fullCollectorNumber = collectorTag + ticket.CollectorNumber;
+                            }
+                            <MudText Typo="Typo.body2"><b>Collector Number:</b> @fullCollectorNumber</MudText>
+                            @if (ticket.Variant != null)
+                            {
+                                <MudText Typo="Typo.body2"><b>Variant:</b> @ticket.Variant</MudText>
+                            }
+                            <MudText Typo="Typo.body2"><b>Estimated Secondary Market Value:</b> $ @ticket.EstimatedEbaySalePrice</MudText>
+
+                            @* Collector Chip *@
+                            @{
+                                string chipTag = ticket.Rerelease ? "RE " : "";
+                                string chipVariant = ticket.Variant == null ? "" : " (" + ticket.Variant + ")";
+                                string chipNumber = chipTag + "#" + ticket.CollectorNumber + chipVariant;
+                            }
+                            <MudChip Label="true"
+                             Color="Color.Primary"
+                             Size="Size.Large">
+                                @chipNumber
+                            </MudChip>
+                        </MudCardContent>
+                    </MudCard>
+                </MudItem>
+            }
+        </MudGrid>
+    }
 </MudContainer>
-}
 
 @code {
     List<CollectibleTicket> tickets = new();
