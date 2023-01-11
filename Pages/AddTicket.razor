@@ -1,0 +1,32 @@
+﻿@page "/addticket"
+
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+
+<PageTitle>CMTdb - Add Ticket</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true" Align="Align.Center">Add Ticket to DB</MudText>
+
+<MudContainer Class="mt-16" MaxWidth="MaxWidth.Small">
+    <MudPaper Class="pa-4">
+        <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
+            <MudTextField T="string" Label="Movie Title" Required="true" RequiredError="Movie Title is required!" />
+            <MudDatePicker Label="Showing Date" Required="true" RequiredError="Showing Date is required!" />
+            <div class="d-flex">
+                <MudTextField T="string" Label="Collector Number" Required="true" RequiredError="Collector Number is required!" />
+                <MudTextField T="string" Label="Variant" />
+            </div>
+            <MudTextField T="double" Label="Estimated Secondary Market Value (in USD)" Required="true" RequiredError="This field is required!" />
+            <div class="d-flex align-center justify-space-between">
+                <MudCheckBox T="bool" Label="Re-Release" />
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Submit</MudButton>
+            </div>
+        </MudForm>
+    </MudPaper>
+</MudContainer>
+
+@code {
+    bool success;
+    string[] errors = { };
+    MudForm form;
+}
