@@ -7,22 +7,51 @@
 
 <MudText Typo="Typo.h3" GutterBottom="true" Align="Align.Center">Add Ticket to DB</MudText>
 
-<MudContainer Class="mt-16" MaxWidth="MaxWidth.Small">
-    <MudPaper Class="pa-4">
-        <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
-            <MudTextField T="string" Label="Movie Title" Required="true" RequiredError="Movie Title is required!" />
-            <MudDatePicker Label="Showing Date" Required="true" RequiredError="Showing Date is required!" />
-            <div class="d-flex">
-                <MudTextField T="string" Label="Collector Number" Required="true" RequiredError="Collector Number is required!" />
-                <MudTextField T="string" Label="Variant" />
-            </div>
-            <MudTextField T="double" Label="Estimated Secondary Market Value (in USD)" Required="true" RequiredError="This field is required!" />
-            <div class="d-flex align-center justify-space-between">
-                <MudCheckBox T="bool" Label="Re-Release" />
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Submit</MudButton>
-            </div>
-        </MudForm>
-    </MudPaper>
+<MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.Medium">
+    <MudGrid Justify="Justify.Center">
+
+        <MudItem xs="12" sm="5">
+            <MudPaper Class="pa-4">
+                <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
+                    <MudTextField T="string" Label="Movie Title" Required="true" RequiredError="Movie Title is required!" />
+                    <MudDatePicker Label="Showing Date" Required="true" RequiredError="Showing Date is required!" />
+                    <div class="d-flex">
+                        <MudTextField T="string" Label="Collector Number" Required="true" RequiredError="Collector Number is required!" />
+                        <MudTextField T="string" Label="Variant" />
+                    </div>
+                    <MudTextField T="string" Label="Estimated Secondary Market Value (in USD)" Required="true" RequiredError="This field is required!" />
+                    <div class="d-flex align-center justify-space-between">
+                        <MudCheckBox T="bool" Label="Re-Release" />
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Submit</MudButton>
+                    </div>
+                </MudForm>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem xs="12" sm="3">
+            <MudCard>
+                <MudCardMedia Image="images/tickets/Placeholder-Image.jpg" Height="200" />
+                <MudCardContent>
+                    @* Card Title *@
+                    <MudText Typo="Typo.h5">Movie Title</MudText>
+
+                    @* Card Body *@
+                    <MudText Typo="Typo.body2"><b>Showing Date:</b> 0000.00.00</MudText>
+                    <MudText Typo="Typo.body2"><b>Collector Number:</b> No. 00</MudText>
+                    <MudText Typo="Typo.body2"><b>Variant:</b> 0</MudText>
+                    <MudText Typo="Typo.body2"><b>Estimated Secondary Market Value:</b> $ 000</MudText>
+
+                    @* Collector Chip *@
+                    <MudChip Label="true"
+                             Color="Color.Primary"
+                             Size="Size.Large">
+                        #00 (0)
+                    </MudChip>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+
+    </MudGrid>
 </MudContainer>
 
 @code {
