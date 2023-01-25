@@ -13,7 +13,7 @@
 
         public bool Rerelease { get; set; } = false;
 
-        public string ShowingDate { get; set; } = "0000.00.00";
+        public DateOnly ShowingDate { get; set; }
 
         public int? Variant { get; set; }
 
