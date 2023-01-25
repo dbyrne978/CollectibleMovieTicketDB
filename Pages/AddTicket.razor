@@ -2,6 +2,7 @@
 
 @using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
+@using CollectibleMovieTicketDB.Model
 
 <PageTitle>CMTdb - Add Ticket</PageTitle>
 
@@ -13,7 +14,7 @@
         <MudItem xs="12" sm="5">
             <MudPaper Class="pa-4">
                 <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
-                    <MudTextField T="string" Label="Movie Title" Required="true" RequiredError="Movie Title is required!" />
+                    <MudTextField T="string" Label="Movie Title" Required="true" RequiredError="Movie Title is required!" @bind-Value="@prototypeTicket.MovieTitle" />
                     <MudDatePicker Label="Showing Date" Required="true" RequiredError="Showing Date is required!" />
                     <div class="d-flex">
                         <MudTextField T="string" Label="Collector Number" Required="true" RequiredError="Collector Number is required!" />
@@ -22,7 +23,7 @@
                     <MudTextField T="string" Label="Estimated Secondary Market Value (in USD)" Required="true" RequiredError="This field is required!" />
                     <div class="d-flex align-center justify-space-between">
                         <MudCheckBox T="bool" Label="Re-Release" />
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto" >Submit</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto" OnClick="OnValidSubmit">Submit</MudButton>
                     </div>
                 </MudForm>
             </MudPaper>
@@ -33,7 +34,7 @@
                 <MudCardMedia Image="images/tickets/Placeholder-Image.jpg" Height="200" />
                 <MudCardContent>
                     @* Card Title *@
-                    <MudText Typo="Typo.h5">Movie Title</MudText>
+                    <MudText Typo="Typo.h5">@prototypeTicket.MovieTitle</MudText>
 
                     @* Card Body *@
                     <MudText Typo="Typo.body2"><b>Showing Date:</b> 0000.00.00</MudText>
@@ -58,4 +59,11 @@
     bool success;
     string[] errors = { };
     MudForm? form;
+    CollectibleTicket prototypeTicket = new CollectibleTicket();
+
+    private void OnValidSubmit()
+    {
+        success = true;
+        StateHasChanged();
+    }
 }
