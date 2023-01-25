@@ -22,7 +22,7 @@
                     <MudTextField T="string" Label="Estimated Secondary Market Value (in USD)" Required="true" RequiredError="This field is required!" />
                     <div class="d-flex align-center justify-space-between">
                         <MudCheckBox T="bool" Label="Re-Release" />
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Submit</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto" >Submit</MudButton>
                     </div>
                 </MudForm>
             </MudPaper>
@@ -57,5 +57,5 @@
 @code {
     bool success;
     string[] errors = { };
-    MudForm form;
+    MudForm? form;
 }

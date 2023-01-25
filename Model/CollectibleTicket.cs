@@ -7,17 +7,17 @@
     {
         public int Id { get; set; }
 
-        public string MovieTitle { get; set; }
+        public string MovieTitle { get; set; } = "Movie Title";
 
-        public int CollectorNumber { get; set; }
+        public int CollectorNumber { get; set; } = 0;
 
-        public bool Rerelease { get; set; }
+        public bool Rerelease { get; set; } = false;
 
-        public string ShowingDate { get; set; }
+        public string ShowingDate { get; set; } = "0000.00.00";
 
         public int? Variant { get; set; }
 
-        public int EstimatedEbaySalePrice { get; set; }
+        public int EstimatedEbaySalePrice { get; set; } = 0;
 
         public string ImageUrl { get; set; }
     }
