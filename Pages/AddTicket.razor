@@ -30,6 +30,7 @@
                         Label="Showing Date"
                         Required="true"
                         RequiredError="Showing Date is required!"
+                        @bind-Date="@prototypeTicket.ShowingDate"
                     />
                     <div class="d-flex">
                         <MudTextField
@@ -75,7 +76,10 @@
                     <MudText Typo="Typo.h5">@prototypeTicket.MovieTitle</MudText>
 
                     @* Card Body *@
-                    <MudText Typo="Typo.body2"><b>Showing Date:</b> 0000.00.00</MudText>
+                    <MudText Typo="Typo.body2">
+                        @{DateTime date = prototypeTicket.ShowingDate ?? DateTime.MinValue;}
+                        <b>Showing Date:</b> @date.ToString("yyyy.MM.dd")
+                    </MudText>
                     <MudText Typo="Typo.body2">
                         <b>Collector Number:</b> No. @prototypeTicket.CollectorNumber
                     </MudText>

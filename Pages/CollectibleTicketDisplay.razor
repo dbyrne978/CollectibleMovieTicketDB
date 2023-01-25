@@ -22,7 +22,8 @@
 
                             @* Card Body *@
                             <MudText Typo="Typo.body2">
-                                <b>Showing Date:</b> @ticket.ShowingDate.ToString("yyyy.MM.dd")
+                                @{DateTime date = ticket.ShowingDate ?? DateTime.Now;}
+                                <b>Showing Date:</b> @date.ToString("yyyy.MM.dd")
                             </MudText>
                             @{
                                 string collectorTag = ticket.Rerelease ? "Re. " : "No. ";
