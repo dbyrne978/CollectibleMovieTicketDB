@@ -43,7 +43,8 @@
                         <MudTextField
                             T="int?"
                             Label="Variant"
-                            @bind-Value="@prototypeTicket.Variant" />
+                            @bind-Value="@prototypeTicket.Variant"
+                        />
                     </div>
                     <MudTextField
                         T="int"
@@ -53,7 +54,11 @@
                         @bind-Value="@prototypeTicket.EstimatedEbaySalePrice"
                     />
                     <div class="d-flex align-center justify-space-between">
-                        <MudCheckBox T="bool" Label="Re-Release" />
+                        <MudCheckBox
+                            T="bool"
+                            Label="Re-Release"
+                            @bind-Checked="@prototypeTicket.Rerelease"
+                        />
                         <MudButton
                             Variant="Variant.Filled"
                             Color="Color.Primary"
@@ -83,8 +88,12 @@
                         @{DateTime date = prototypeTicket.ShowingDate ?? DateTime.MinValue;}
                         <b>Showing Date:</b> @date.ToString("yyyy.MM.dd")
                     </MudText>
+                    @{
+                        string collectorTag = prototypeTicket.Rerelease ? "Re. " : "No. ";
+                        string fullCollectorNumber = collectorTag + prototypeTicket.CollectorNumber;
+                    }
                     <MudText Typo="Typo.body2">
-                        <b>Collector Number:</b> No. @prototypeTicket.CollectorNumber
+                        <b>Collector Number:</b> @fullCollectorNumber
                     </MudText>
                     @{
                         if (@prototypeTicket.Variant.HasValue)
@@ -99,16 +108,24 @@
                         <b>Estimated Secondary Market Value:</b> 
                         $ @prototypeTicket.EstimatedEbaySalePrice
                     </MudText>
+                    <MudText Typo="Typo.body2">
+                        <b>test:</b>
+                        @prototypeTicket.Rerelease
+                    </MudText>
 
                     @* Collector Chip *@
+                    @{
+                        string chipTag = prototypeTicket.Rerelease ? "RE " : "";
+                        string chipVariant = prototypeTicket.Variant == null ? "" : " (" +
+                        prototypeTicket.Variant + ")";
+                        string chipNumber = chipTag + "#" +
+                        prototypeTicket.CollectorNumber + chipVariant;
+                    }
                     <MudChip Label="true"
                              Color="Color.Primary"
-                             Size="Size.Large">
-                        @{
-                            string chipVariant = prototypeTicket.Variant == null ? "" : " (" +
-                                prototypeTicket.Variant + ")";
-                        }
-                        #@prototypeTicket.CollectorNumber @chipVariant
+                             Size="Size.Large"
+                    >
+                        @chipNumber
                     </MudChip>
                 </MudCardContent>
             </MudCard>
