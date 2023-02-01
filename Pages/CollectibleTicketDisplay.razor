@@ -53,11 +53,16 @@
                                 string chipNumber = chipTag + "#" + 
                                     ticket.CollectorNumber + chipVariant;
                             }
-                            <MudChip Label="true"
-                             Color="Color.Primary"
-                             Size="Size.Large">
-                                @chipNumber
-                            </MudChip>
+
+                            <MudContainer Class="d-flex justify-end px-0">
+                                <MudChip
+                                    Label="true"
+                                    Color="Color.Primary"
+                                    Size="Size.Large"
+                                >
+                                    @chipNumber
+                                </MudChip>
+                            </MudContainer>
                         </MudCardContent>
                     </MudCard>
                 </MudItem>
